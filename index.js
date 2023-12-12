@@ -12,6 +12,12 @@ const server = express();
 // Ajout des fichiers statiques
 server.use(express.static('public'));
 
+// Je spécifie le dossier contenant les views (les fichiers .ejs)
+// pour le paramètre "views" de mon serveur, je place la valeur "./app/views"
+server.set('views', './app/views');
+// Ajout du moteur de templace
+server.set('view engine', 'ejs');
+
 // Ajout du router
 const router = require("./app/router");
 server.use(router);
